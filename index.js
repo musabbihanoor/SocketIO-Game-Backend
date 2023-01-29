@@ -10,7 +10,7 @@ const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://scary-transport.surge.sh/",
+    origin: "https://kingandknight.netlify.app/",
     methods: ["GET", "POST"],
   },
 });

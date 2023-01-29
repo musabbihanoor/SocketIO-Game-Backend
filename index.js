@@ -130,6 +130,10 @@ io.on("connection", (socket) => {
   });
 });
 
+app.all("/", (req, res) => {
+  res.send("Its hosted!");
+});
+
 server.listen(3001, () => {
   console.log("SERVER IS RUNNING");
 });

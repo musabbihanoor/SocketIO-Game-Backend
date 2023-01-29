@@ -5,8 +5,6 @@ const https = require("https");
 const socketio = require("socket.io");
 const cors = require("cors");
 
-app.use(cors());
-
 const server = http.createServer(app);
 
 // const io = require("socket.io")(server, {
@@ -24,6 +22,8 @@ const server = http.createServer(app);
 // });
 
 const io = socketio(server);
+
+app.use(cors());
 
 const rooms = {};
 const roles = ["king", "knight", "theif", "innocent"];

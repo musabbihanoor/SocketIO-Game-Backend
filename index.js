@@ -7,7 +7,7 @@ const cors = require("cors");
 
 app.use(cors());
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 // const io = require("socket.io")(server, {
 //   cors: {

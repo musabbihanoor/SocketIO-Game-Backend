@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const https = require("https");
-const { Server } = require("socket.io");
+const socketio = require("socket.io");
 const cors = require("cors");
 
 app.use(cors());
@@ -16,12 +16,14 @@ const server = http.createServer(app);
 //   },
 // });
 
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "*",
+//     methods: ["GET", "POST"],
+//   },
+// });
+
+const io = socketio(server);
 
 const rooms = {};
 const roles = ["king", "knight", "theif", "innocent"];

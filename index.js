@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const https = require("https");
-const socketio = require("socket.io");
+const { Server } = require("socket.io");
 const cors = require("cors");
 
 const server = http.createServer(app);
+
+require("dotenv").config();
 
 // const io = require("socket.io")(server, {
 //   cors: {
@@ -14,14 +16,12 @@ const server = http.createServer(app);
 //   },
 // });
 
-// const io = new Server(server, {
-//   cors: {
-//     origin: "*",
-//     methods: ["GET", "POST"],
-//   },
-// });
-
-const io = socketio(server);
+const io = new Server(server, {
+  cors: {
+    origin: process.env.CORS,
+    methods: ["GET", "POST"],
+  },
+});
 
 app.use(cors());
 
